@@ -79,17 +79,17 @@ int main()
     	{
     		success = false;
     		break;
-		}
 	}
+    }
 	
-	if (success == true)
-	{
-		cout << "success!";
-	}
-	else
-	{
-		cout << "Failed!";
-	}
+    if (success == true)
+    {
+	cout << "success!";
+    }
+    else
+    {
+	cout << "Failed!";
+    }
     
     return 0;
 }
