@@ -1,1 +1,1 @@
-This project has algorithms related to competitive programming
+This project has general algorithms  
