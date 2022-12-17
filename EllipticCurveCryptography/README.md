@@ -1,6 +1,7 @@
 
 # Elliptic Curve Cryptography Algorithm
 
+**Introduction**  
 ECC is used for asymmetric cryptography, based on algebraic operations on elliptic curve and ECDLP (elliptic curve discrete logarithmic problem) as trapdoor function. the major advantage of ECC is that it provides encryption keys of smaller length compared to RSA with same level of security (more technical explaination in later section). This would optimize E2E performance of any application using this encryption, wrt. encryption time and memory usage. However ECC has potential vulnerabilities which can be exloited by attackers, it requires selection of params carefully, to be standardised by experts who understand the real mathematical complexity of elliptic curve.  
 More details about concerns for RSA encryption: see resource [2].  
 Elliptic curves are used to generate public/private keys, with general curve equation: y^2 = x^3 + ax + b  
@@ -13,7 +14,7 @@ And public key is the EC point corresponding to private key.
 
 **Point Operations**  
 Elliptic curves used for cryptography are special curves which support "Point Operations" like based on which the cryptosystem is defined  
-See Resources [1] and [2]  
+See Resources [1]  
 Point Addition 'C' of two points A and B is defined by line joining A and B intersecting third point C on curve (reflected across x-axis)  
 Take any two points on the  elliptic curve and draw a line through them, it will intersect the curve at exactly one more place (or infinity)  
 However if A and B are same point, then the line is tangent to curve at this point, and intersects curve at point 'C' (again reflected across x-axis)  
@@ -35,7 +36,7 @@ This also has Associativity property, defined as:
 The resulting point does not depend on order of Point Addition.    
 
 Proof for these properties might be lengthy but taking a look at curve it seems intutive  
-![image](https://user-images.githubusercontent.com/29455503/202861980-951463d6-6821-485a-a01b-b56467394b90.png)  
+<img src="https://user-images.githubusercontent.com/29455503/202861980-951463d6-6821-485a-a01b-b56467394b90.png" width="500">  
 Point operations are executed with "Closed" property, as they operate on curve in finite fields  
 If a point (x,y) is outside the field it can be simply mapped to inside the field applying the mod  
 So point operations are executed without field, but final result is mapped back to move inside the field  
@@ -118,7 +119,7 @@ User2_publicKey * User1_privateKey = User1_publicKey * User2_privateKey
 
 Resources:  
 1. Best explanation for elliptic curve point operations: https://www.youtube.com/watch?v=XmygBPb7DPM  
-2. Using point operations for cryptography - https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/  
+2. Good blog post on ECC application - https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/  
 3. Great technical details of ECC (+ about generator point) - https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc  
 4. Point Multiplication - https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication  
 5. Point Operations - https://www.idc-online.com/technical_references/pdfs/data_communications/Point%20Multiplication.pdf  
