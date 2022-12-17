@@ -1,9 +1,11 @@
 
 # Elliptic Curve Cryptography Algorithm
 
-The major advantage of ECC is that it provides encryption keys of smaller length compared to RSA with same level of security (more technical explaination in later section). This would optimize E2E performance of any application using this encryption, wrt. encryption time and memory usage. However ECC has potential vulnerabilities which can be exloited by attackers, it requires selection of params carefully, to be standardised by experts who understand the real mathematical complexity of elliptic curve.  
-High level usage of this algo - https://www.youtube.com/watch?v=0NGPhAPKYv4  
-Some more details - https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc  
+ECC is used for asymmetric cryptography, based on algebraic operations on elliptic curve and ECDLP (elliptic curve discrete logarithmic problem) as trapdoor function. the major advantage of ECC is that it provides encryption keys of smaller length compared to RSA with same level of security (more technical explaination in later section). This would optimize E2E performance of any application using this encryption, wrt. encryption time and memory usage. However ECC has potential vulnerabilities which can be exloited by attackers, it requires selection of params carefully, to be standardised by experts who understand the real mathematical complexity of elliptic curve.  
+More details about concerns for RSA encryption: see resource [2].  
+Elliptic curves are used to generate public/private keys, with general curve equation: y^2 = x^3 + ax + b  
+These curves are symmetric to x-axis. A major property of curve used for encryption is that - a line intersects curve at maximum of 3 points. This must be applicable even if curve is limited by field.  
+For more details, see resources [3] and [8].     
 In principle - a few standard elliptic curves are used, with varied level of security - length of keys / performance etc..  
 And based on curve - different encryption/signature algorithms are used based on private/public keys.   
 Where private key is selected as random number within the limit of curve field.  
@@ -12,9 +14,27 @@ And public key is the EC point corresponding to private key.
 **Point Operations**  
 Elliptic curves used for cryptography are special curves which support "Point Operations" like based on which the cryptosystem is defined  
 See Resources [1] and [2]  
-Point Addition 'C' of two points A and B is defined by line joining A and B intersecting third point C on curve  
+Point Addition 'C' of two points A and B is defined by line joining A and B intersecting third point C on curve (reflected across x-axis)  
 Take any two points on the  elliptic curve and draw a line through them, it will intersect the curve at exactly one more place (or infinity)  
-Proof for this property might be lengthy but taking a look at curve it seems intutive  
+However if A and B are same point, then the line is tangent to curve at this point, and intersects curve at point 'C' (again reflected across x-axis)  
+Hence, C = A + A, or C = 2*A. This defines the point multiplication.  
+
+The addition point is reflected at intesection to define identity function.  
+A + infinity = A  
+Where A + infinity is vertical line which intersects at reflection of A, and taking reflection again gets the original point A.  
+
+Point's inverse is defined as reflection of point across x-axis. Becuase adding reflection point will intersect curve at infinity.  
+A + Ainv = infinity  
+Hence, Ainv = -A  
+where, A = (x,y), Ainv = (x,-y)  
+This defnies the Point substraction:  
+A - A = infinity  
+
+This also has Associativity property, defined as:  
+(A + B) + C = A + (B + C)  
+The resulting point does not depend on order of Point Addition.    
+
+Proof for these properties might be lengthy but taking a look at curve it seems intutive  
 ![image](https://user-images.githubusercontent.com/29455503/202861980-951463d6-6821-485a-a01b-b56467394b90.png)  
 Point operations are executed with "Closed" property, as they operate on curve in finite fields  
 If a point (x,y) is outside the field it can be simply mapped to inside the field applying the mod  
@@ -22,8 +42,7 @@ So point operations are executed without field, but final result is mapped back 
 Example curve with finite field of F17 is: y2 = x3 + 7 (mod17) , indicates all points which satisfy this equation (with mod)  
 Hence elliptic curves used in cryptography are set of integer points in square matrix, not elliptic curves.  
 
-These point (addition/multiplication) operations on EC are made irreversible with some steps (trapdoor) to be used for encryption  
-
+These point operations create trapdoor function for ECC (details in later section)  
 Useful tool to visualize elliptic curves based on equation - https://www.desmos.com/calculator/ialhd71we3  
 
 **Public / Private keys - EC points**  
@@ -37,14 +56,21 @@ Great source to understand E2E encryption steps - https://cryptobook.nakov.com/a
 First we have generator point - and multiplying it with private key (k) gives the EC point as public key  
 More details here: https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc  
 
-**Discrete logarithm problem**  
-ECC is secured with DLP: https://www.doc.ic.ac.uk/~mrh/330tutor/ch06s02.html#:~:text=The%20discrete%20logarithm%20problem%20is,logarithms%20depends%20on%20the%20groups   
 **Trapdoor function of ECC**  
 Computing the private key from the public key in this kind of cryptosystem is called the elliptic curve discrete logarithm function which is trapdoor function  
 Ref: https://blog.boot.dev/cryptography/elliptic-curve-cryptography/#:~:text=Elliptic%20Curve%20Cryptography%20(ECC)%20is,because%20it%20is%20so%20lightweight.  
 This is a great trapdoor function because if you know where the starting point (A) is and how many hops are required to get to the ending point (E), it’s very easy to find the ending point. On the other hand, if all you know is where the starting point and ending point are, it’s nearly impossible to find how many hops it took to get there.  
 Public Key: Starting Point A, Ending Point E  
 Private Key: Number of hops from A to E  
+
+There is no direct way to find multiplication point - A*k, where A is point, and k is constant  
+We need to add A to itself k times to find the result. OR use logarithmic algo to efficiently find the result.  
+However, if C = A*k  
+It would be very difficult to find 'k', only with knowledge of 'C' and 'A'.  
+This is trapdoor function of elliptic curve. In other words, known as discrete logarithmic problem.  
+
+**Discrete logarithm problem**  
+ECC is secured with DLP: https://www.doc.ic.ac.uk/~mrh/330tutor/ch06s02.html#:~:text=The%20discrete%20logarithm%20problem%20is,logarithms%20depends%20on%20the%20groups   
 
 **Why ECC supports shorter key lengths compared to RSA**  
 This difference is due to fact that -  
@@ -97,6 +123,6 @@ Resources:
 4. Point Multiplication - https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication  
 5. Point Operations - https://www.idc-online.com/technical_references/pdfs/data_communications/Point%20Multiplication.pdf  
 6. Subgroup of EC - https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc#order-and-cofactor-of-elliptic-curve  
-7. Small subgroup attach EC - https://www.rfc-editor.org/rfc/rfc2785  
+7. Small subgroup attack EC - https://www.rfc-editor.org/rfc/rfc2785  
 8. Some more context on ECC - https://www.youtube.com/watch?v=0NGPhAPKYv4  
 
