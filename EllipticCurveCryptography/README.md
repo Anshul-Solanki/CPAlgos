@@ -33,7 +33,9 @@ A - A = infinity
 
 This also has Associativity property, defined as:  
 (A + B) + C = A + (B + C)  
-The resulting point does not depend on order of Point Addition.    
+The resulting point does not depend on order of Point Addition.   
+
+Any two points on curve are called EC points, we can apply point operations on them to find third point 'C'.  
 
 Proof for these properties might be lengthy but taking a look at curve it seems intutive  
 <img src="https://user-images.githubusercontent.com/29455503/202861980-951463d6-6821-485a-a01b-b56467394b90.png" width="500">  
@@ -46,15 +48,11 @@ Hence elliptic curves used in cryptography are set of integer points in square m
 These point operations create trapdoor function for ECC (details in later section)  
 Useful tool to visualize elliptic curves based on equation - https://www.desmos.com/calculator/ialhd71we3  
 
-**Public / Private keys - EC points**  
-
 **Generating Private Key**  
-It is simply generating a random number between limits. In this case the limit is defined by "range of the curve's field size"  
-Very nice explanation: https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/ (still not very concrete)  
-Great source to understand E2E encryption steps - https://cryptobook.nakov.com/asymmetric-key-ciphers/ecc-encryption-decryption  
+It is simply generating a random integer (mostly prime) between limits. In this case the limit is defined by "range of the curve's field size"  
 
 **Computing Public Key**  
-First we have generator point - and multiplying it with private key (k) gives the EC point as public key  
+First we have generator point - which is pre-defined EC point. And multiplying it with private key (k) gives the EC point as public key  
 More details here: https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc  
 
 **Trapdoor function of ECC**  
@@ -65,13 +63,11 @@ Public Key: Starting Point A, Ending Point E
 Private Key: Number of hops from A to E  
 
 There is no direct way to find multiplication point - A*k, where A is point, and k is constant  
-We need to add A to itself k times to find the result. OR use logarithmic algo to efficiently find the result.  
+We need to add A to itself k times to find the result. OR use "double-and-add" algo to efficiently find the result.  
 However, if C = A*k  
 It would be very difficult to find 'k', only with knowledge of 'C' and 'A'.  
 This is trapdoor function of elliptic curve. In other words, known as discrete logarithmic problem.  
-
-**Discrete logarithm problem**  
-ECC is secured with DLP: https://www.doc.ic.ac.uk/~mrh/330tutor/ch06s02.html#:~:text=The%20discrete%20logarithm%20problem%20is,logarithms%20depends%20on%20the%20groups   
+More details on DLP: https://www.doc.ic.ac.uk/~mrh/330tutor/ch06s02.html#:~:text=The%20discrete%20logarithm%20problem%20is,logarithms%20depends%20on%20the%20groups   
 
 **Why ECC supports shorter key lengths compared to RSA**  
 This difference is due to fact that -  
@@ -80,9 +76,6 @@ RSA is based on integer factorization
 This is decided based on which algos are available to break encryption and the comparative difficulty comparision across RSA and ECC  
 My theory is - because RSA can be solved with various algorithms to factor a large prime number (like sieve algo)  
 The discrete logarithm in particular cannot be solved with such algo, hence it is more secure with lesser key length  
-
-**Generator Point**  
-https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc  
 
 **Cofactor of ECC**  
 https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc  
@@ -126,4 +119,5 @@ Resources:
 6. Subgroup of EC - https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc#order-and-cofactor-of-elliptic-curve  
 7. Small subgroup attack EC - https://www.rfc-editor.org/rfc/rfc2785  
 8. Some more context on ECC - https://www.youtube.com/watch?v=0NGPhAPKYv4  
+9. E2E example: https://cryptobook.nakov.com/asymmetric-key-ciphers/ecc-encryption-decryption  
 
