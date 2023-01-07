@@ -77,11 +77,14 @@ This is decided based on which algos are available to break encryption and the c
 My theory is - because RSA can be solved with various algorithms to factor a large prime number (like sieve algo)  
 The discrete logarithm in particular cannot be solved with such algo, hence it is more secure with lesser key length  
 
-**Cofactor of ECC**  
-https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc  
-
-**Subgroup of elliptic curve**  
-An elliptic curve can have one or many subgroups which is set of points such that when two points are added OR a point is multiplied with number results point in same sub-group  
+**Cofactor and Subgroups in ECC**  
+Order (n) of curve is defined as total number of points.  
+Given a generator point - we get a cyclic group of EC points which can be generated multiplying generator point by any integer.  
+And the number of points in the cyclic/sub group (r) can be less than order of curve.  
+There can be (h) number of cyclic groups called cofactor, where each group has (r) number of unique points.  
+Hence, h = n / r  
+So the security depends on order of subgroup (r), which needs to be very large number.  
+Hence, elliptic curve can have one or many subgroups which is set of points such that when two points are added OR a point is multiplied with number results point in same sub-group  
 More info here: https://cryptobook.nakov.com/asymmetric-key-ciphers/elliptic-curve-cryptography-ecc#order-and-cofactor-of-elliptic-curve  
 
 **Small subgroup attack**  
@@ -97,7 +100,7 @@ Q also belongs to another small sub-group which is subset of large sub-group, an
 This is known as "small-subgroup" attacks. This is the reason why cryptographers usually choose the subgroup order r to be a prime number  
 More info here: https://www.rfc-editor.org/rfc/rfc2785  
 
-**Encryption using ECC**  
+**E2E Encryption using ECC**  
 This document explains in great way: https://cryptobook.nakov.com/asymmetric-key-ciphers/ecc-encryption-decryption (has sample code as well)  
 Using ECDH algorithm  
 Steps are :  
