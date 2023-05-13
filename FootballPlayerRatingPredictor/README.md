@@ -1,4 +1,4 @@
-This code predicts the player ratings specific to upcoming fixture. Can be used to create fantasy team on apps like dream11.  
+This code predicts the player ratings for upcoming fixture. Can be used to create fantasy team on apps like dream11.  
 It uses free apis from rapidapi platform - it supports up-to 100 requests (of any type) a day, which is sufficient to predict at-least 3-4 fixtures using this code.  
 https://rapidapi.com/api-sports/api/api-football-beta  
 
