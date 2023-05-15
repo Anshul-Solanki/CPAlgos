@@ -71,7 +71,7 @@ def GetPlayerRatings(teamRatings, fixtures, team1, team2) :
 	playerRatings = {}
 	playerFixtureSim = {}
 	playerPos = {}
-	motmPlayers = {}
+	motmPlayers = []
 
 	cnt = 0
 
@@ -126,6 +126,19 @@ def GetPlayerRatings(teamRatings, fixtures, team1, team2) :
 					motmRating = float(rating)
 					motmPlayerName = name + "_pos_" + player["statistics"][0]["games"]["position"]
 
+
+			for player in fixtureStats[1]["players"] :
+
+				name = player["player"]["name"]
+				rating = player["statistics"][0]["games"]["rating"]
+
+				if rating == None or rating == "-":
+					continue
+
+				if float(rating) > motmRating :
+					motmRating = float(rating)
+					motmPlayerName = name + "_pos_" + player["statistics"][0]["games"]["position"]
+
 		if team_a == team2 :
 
 			for player in fixtureStats[1]["players"] :
@@ -149,10 +162,22 @@ def GetPlayerRatings(teamRatings, fixtures, team1, team2) :
 					motmRating = float(rating)
 					motmPlayerName = name + "_pos_" + player["statistics"][0]["games"]["position"]
 
-		if motmPlayerName not in motmPlayers :
-			motmPlayers[motmPlayerName] = 0
 
-		motmPlayers[motmPlayerName] += 1
+			for player in fixtureStats[0]["players"] :
+
+				name = player["player"]["name"]
+				rating = player["statistics"][0]["games"]["rating"]
+
+				if rating == None or rating == "-":
+					continue
+
+				if float(rating) > motmRating :
+					motmRating = float(rating)
+					motmPlayerName = name + "_pos_" + player["statistics"][0]["games"]["position"]
+
+
+		if motmPlayerName not in motmPlayers :
+			motmPlayers.append(motmPlayerName)
 
 
 	print("total number of fixtures read: ", cnt)
@@ -172,8 +197,7 @@ def GetPlayerRatings(teamRatings, fixtures, team1, team2) :
 		playersRes[name] = rsum / rcnt
 
 		if name in motmPlayers :
-			playersRes[name] += motmPlayers[name]
-
+			playersRes[name] += 1
 
 	# sort with ratings
 	playersRes = sorted(playersRes.items(), key=lambda x:x[1], reverse=True)
