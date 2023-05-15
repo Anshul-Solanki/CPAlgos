@@ -21,10 +21,10 @@ def main() :
 	# Premier League - 39
 	# serie a - 135
 	# Ligue 1 - 61
-	querystring = {"to":"2023-05-11","league":"61","season":"2022","from":"2023-02-11"}
+	querystring = {"to":"2023-05-13","league":"135","season":"2022","from":"2023-02-13"}
 
 	headers = {
-		"X-RapidAPI-Key": "<key>",
+		"X-RapidAPI-Key": key,
 		"X-RapidAPI-Host": "api-football-beta.p.rapidapi.com"
 	}
 
@@ -33,8 +33,8 @@ def main() :
 
 	teamRatings = GetTeamsWithRatings(fixtures)
 
-	team1 = "Paris Saint Germain"
-	team2 = "Ajaccio"
+	team1 = "Juventus"
+	team2 = "Cremonese"
 	playerRatings = GetPlayerRatings(teamRatings, fixtures, team1, team2)
 
 	print(*playerRatings,sep='\n')
@@ -71,6 +71,7 @@ def GetPlayerRatings(teamRatings, fixtures, team1, team2) :
 	playerRatings = {}
 	playerFixtureSim = {}
 	playerPos = {}
+	motmPlayers = {}
 
 	cnt = 0
 
@@ -97,6 +98,9 @@ def GetPlayerRatings(teamRatings, fixtures, team1, team2) :
 		team_h = fixtureStats[0]["team"]["name"] + "_home"
 		team_a = fixtureStats[1]["team"]["name"] + "_away"
 
+		motmPlayerName = ""
+		motmRating = 0
+
 		print ("fixture: ", team_h, " ", team_a, " Date: ", fixture["fixture"]["date"])
 
 		if team_h == team1 :
@@ -106,7 +110,7 @@ def GetPlayerRatings(teamRatings, fixtures, team1, team2) :
 				name = player["player"]["name"]
 				rating = player["statistics"][0]["games"]["rating"]
 
-				if rating == None :
+				if rating == None or rating == "-":
 					continue
 
 				if name not in playerRatings :
@@ -117,6 +121,10 @@ def GetPlayerRatings(teamRatings, fixtures, team1, team2) :
 				playerRatings[name].append(rating)
 				playerFixtureSim[name].append(r)
 				playerPos[name] = player["statistics"][0]["games"]["position"]
+
+				if float(rating) > motmRating :
+					motmRating = float(rating)
+					motmPlayerName = name + "_pos_" + player["statistics"][0]["games"]["position"]
 
 		if team_a == team2 :
 
@@ -137,6 +145,15 @@ def GetPlayerRatings(teamRatings, fixtures, team1, team2) :
 				playerFixtureSim[name].append(r)
 				playerPos[name] = player["statistics"][0]["games"]["position"]
 
+				if float(rating) > motmRating :
+					motmRating = float(rating)
+					motmPlayerName = name + "_pos_" + player["statistics"][0]["games"]["position"]
+
+		if motmPlayerName not in motmPlayers :
+			motmPlayers[motmPlayerName] = 0
+
+		motmPlayers[motmPlayerName] += 1
+
 
 	print("total number of fixtures read: ", cnt)
 
@@ -151,7 +168,11 @@ def GetPlayerRatings(teamRatings, fixtures, team1, team2) :
 			rsum += float(playerRatings[pl][i]) * playerFixtureSim[pl][i]
 			rcnt += playerFixtureSim[pl][i]
 
-		playersRes[pl + "_pos_" + playerPos[pl]] = rsum / rcnt
+		name = pl + "_pos_" + playerPos[pl]
+		playersRes[name] = rsum / rcnt
+
+		if name in motmPlayers :
+			playersRes[name] += motmPlayers[name]
 
 
 	# sort with ratings
@@ -168,7 +189,7 @@ def GetFixtureDetails(fixtureId) :
 	querystring = {"fixture":fixtureId}
 
 	headers = {
-		"X-RapidAPI-Key": "<key>",
+		"X-RapidAPI-Key": key,
 		"X-RapidAPI-Host": "api-football-beta.p.rapidapi.com"
 	}
 
