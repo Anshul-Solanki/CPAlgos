@@ -12,7 +12,7 @@ Hence the cumulative rating of a player depends on opponent team.
 Also we add some indication if a player can be selected as captain only if we have sufficient datapoints for that player to be reliably consistent.
 '''
 
-key = "fb8dab51e8mshdbafa7c3b8e4686p1bc0b7jsna458f6d40d2b"
+key = "<key>"
 
 def main() :
 
