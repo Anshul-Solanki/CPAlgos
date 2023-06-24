@@ -14,6 +14,7 @@ Also we add some indication if a player can be selected as captain only if we ha
 '''
 
 key = "<key>"
+
 home_adv = True
 run_testMode = True
 
