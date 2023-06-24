@@ -13,23 +13,23 @@ Code requires a few parameters to be set:
 
 Sample response for a fixture:  
 
-The result format is: <playerName>_<playerPosition>_<IsCaptain> predictedRating MinRatingOnD11
+The result format is: playerName_playerPosition_IsCaptain predictedRating MinRatingOnD11
 
-Running in Test Mode
-New params: 
-global motm_mul
-motm_mul =  0.7934919639127407
-global team_ratePt_mul
-team_ratePt_mul =  1.9479577755147233
-global r_gk_mul
-r_gk_mul =  1.4243600836780737
-global r_def_mul
-r_def_mul =  0.5797622033938612
-global r_mid_mul
-r_mid_mul =  0.34365455307123133
-global r_fwd_mul
-r_fwd_mul =  1.223603462902595
-home_adv:  True
+Running in Test Mode  
+New params:  
+global motm_mul  
+motm_mul =  0.7934919639127407  
+global team_ratePt_mul  
+team_ratePt_mul =  1.9479577755147233  
+global r_gk_mul  
+r_gk_mul =  1.4243600836780737  
+global r_def_mul  
+r_def_mul =  0.5797622033938612  
+global r_mid_mul  
+r_mid_mul =  0.34365455307123133  
+global r_fwd_mul  
+r_fwd_mul =  1.223603462902595  
+home_adv:  True  
 fixture:  Viking_home   Lillestrom_away  Date:  2023-04-15T16:00:00+00:00  
 fixture:  ODD Ballklubb_home   Brann_away  Date:  2023-04-16T15:00:00+00:00  
 fixture:  Bodo/Glimt_home   Brann_away  Date:  2023-04-29T16:00:00+00:00  
