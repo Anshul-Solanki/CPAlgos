@@ -13,42 +13,69 @@ Code requires a few parameters to be set:
 
 Sample response for a fixture:  
 
-fixture:  Lazio_home   Bologna_away  Date:  2022-08-14T16:30:00+00:00  
-fixture:  Sassuolo_home   Lecce_away  Date:  2022-08-20T18:45:00+00:00  
-fixture:  Lazio_home   Inter_away  Date:  2022-08-26T18:45:00+00:00  
-fixture:  Napoli_home   Lecce_away  Date:  2022-08-31T18:45:00+00:00  
-fixture:  Lazio_home   Napoli_away  Date:  2022-09-03T18:45:00+00:00  
-fixture:  Torino_home   Lecce_away  Date:  2022-09-05T18:45:00+00:00  
-fixture:  Lazio_home   Verona_away  Date:  2022-09-11T16:00:00+00:00  
-fixture:  Salernitana_home   Lecce_away  Date:  2022-09-16T18:45:00+00:00  
-fixture:  Lazio_home   Spezia_away  Date:  2022-10-02T10:30:00+00:00  
-fixture:  AS Roma_home   Lecce_away  Date:  2022-10-09T18:45:00+00:00  
-fixture:  Lazio_home   Udinese_away  Date:  2022-10-16T13:00:00+00:00  
-fixture:  Bologna_home   Lecce_away  Date:  2022-10-23T13:00:00+00:00  
-fixture:  Lazio_home   Salernitana_away  Date:  2022-10-30T17:00:00+00:00  
-fixture:  Udinese_home   Lecce_away  Date:  2022-11-04T19:45:00+00:00  
-fixture:  Lazio_home   Monza_away  Date:  2022-11-10T19:45:00+00:00  
-fixture:  Sampdoria_home   Lecce_away  Date:  2022-11-12T17:00:00+00:00  
-fixture:  Lazio_home   Empoli_away  Date:  2023-01-08T14:00:00+00:00  
-fixture:  Spezia_home   Lecce_away  Date:  2023-01-08T14:00:00+00:00  
-fixture:  Verona_home   Lecce_away  Date:  2023-01-21T14:00:00+00:00  
-fixture:  Lazio_home   AC Milan_away  Date:  2023-01-24T19:45:00+00:00  
-fixture:  Lazio_home   Fiorentina_away  Date:  2023-01-29T17:00:00+00:00  
-fixture:  Cremonese_home   Lecce_away  Date:  2023-02-04T14:00:00+00:00  
-fixture:  Lazio_home   Atalanta_away  Date:  2023-02-11T19:45:00+00:00  
-fixture:  Atalanta_home   Lecce_away  Date:  2023-02-19T11:30:00+00:00  
-fixture:  Lazio_home   Sampdoria_away  Date:  2023-02-27T19:45:00+00:00  
-fixture:  Inter_home   Lecce_away  Date:  2023-03-05T17:00:00+00:00  
-fixture:  Fiorentina_home   Lecce_away  Date:  2023-03-19T14:00:00+00:00  
-fixture:  Lazio_home   AS Roma_away  Date:  2023-03-19T17:00:00+00:00  
-fixture:  Empoli_home   Lecce_away  Date:  2023-04-03T16:30:00+00:00  
-fixture:  Lazio_home   Juventus_away  Date:  2023-04-08T18:45:00+00:00  
-fixture:  Lazio_home   Torino_away  Date:  2023-04-22T16:00:00+00:00  
-fixture:  AC Milan_home   Lecce_away  Date:  2023-04-23T16:00:00+00:00  
-fixture:  Juventus_home   Lecce_away  Date:  2023-05-03T16:00:00+00:00  
-fixture:  Lazio_home   Sassuolo_away  Date:  2023-05-03T19:00:00+00:00  
-total number of fixtures read:  34  
-[('Mattia Zaccagni_pos_F', 7.511301391338877), ('Luis Alberto_pos_M', 7.315266608697479), ('Felipe Anderson_pos_F', 7.187335367315599), ('Marcos Antônio_pos_M', 7.150478091064174), ('Sergej Milinković-Savić_pos_M', 7.118027571953047), ('Nicolò Casale_pos_D', 7.0898888809188), ('Alessio Romagnoli_pos_D', 7.055867190229467), ('Ivan Provedel_pos_G', 7.002290460011757), ('Rémi Oudin_pos_F', 6.9925783349012445), ('Federico Baschirotto_pos_D', 6.9822641686469264), ('Gabriel Strefezza_pos_F', 6.960757233986591), ('Wladimiro Falcone_pos_G', 6.942698327800748), ('Patric_pos_D', 6.910897568686379), ('Mario Gila Fuentes_pos_D', 6.9), ('Tommaso Cassandro_pos_D', 6.9), ('Adam Marušić_pos_D', 6.875901152692491), ('Pedro_pos_F', 6.859913843033918), ('Manuel Lazzari_pos_D', 6.856831804285729), ('Simone Romagnoli_pos_D', 6.840958278604131), ('Toma Bašić_pos_M', 6.837667933431977), ('Antonino Gallo_pos_D', 6.820470063458589), ('Danilo Cataldi_pos_M', 6.818422703813204), ('Alexis Blin_pos_M', 6.815012221681428), ('Marin Pongračić_pos_D', 6.811067733222301), ('Assan Ceesay_pos_F', 6.808817985622024), ('Alessandro Tuia_pos_D', 6.76964578221165), ('Samuel Umtiti_pos_D', 6.754248432003945), ('Valentin Gendrey_pos_D', 6.737220679091451), ('Matteo Cancellieri_pos_F', 6.714523502977877), ('Elseid Hysaj_pos_D', 6.69912945521541), ('Giuseppe Pezzella_pos_D', 6.699016959129187), ('Matías Vecino_pos_M', 6.696516981520347), ('Kristoffer Askildsen_pos_M', 6.676392900984924), ('Ciro Immobile_pos_F', 6.673558949242208), ('Federico Di Francesco_pos_F', 6.664997172310134), ('Pablo Rodríguez_pos_F', 6.629923672481328), ('Joel Voelkerling Persson_pos_F', 6.623670662671587), ('Marcos Antonio_pos_M', 6.601134080212358), ('Pietro Ceccaroni_pos_D', 6.6), ('Luca Pellegrini_pos_D', 6.6), ('Kristijan Bistrović_pos_M', 6.580530772941977), ('Þórir Jóhann Helgason_pos_M', 6.552112410557426), ('Lorenzo Colombo_pos_F', 6.549954519712526), ('Joan González_pos_M', 6.540776389355378), ('Morten Hjulmand_pos_M', 6.520960536017701), ('Luka Romero_pos_M', 6.490203560415916), ('Marcin Listkowski_pos_F', 6.4675203773636385), ('Lameck Banda_pos_F', 6.459361624722312), ('Youssef Maleh_pos_M', 6.454964162103228), ('Kastriot Dermaku_pos_D', 6.2), ('Luis Maximiano_pos_G', 3.0)]
-[Finished in 56.6s]  
-
-
+Running in Test Mode
+New params: 
+global motm_mul
+motm_mul =  0.7934919639127407
+global team_ratePt_mul
+team_ratePt_mul =  1.9479577755147233
+global r_gk_mul
+r_gk_mul =  1.4243600836780737
+global r_def_mul
+r_def_mul =  0.5797622033938612
+global r_mid_mul
+r_mid_mul =  0.34365455307123133
+global r_fwd_mul
+r_fwd_mul =  1.223603462902595
+home_adv:  True
+fixture:  Viking_home   Lillestrom_away  Date:  2023-04-15T16:00:00+00:00  
+fixture:  ODD Ballklubb_home   Brann_away  Date:  2023-04-16T15:00:00+00:00  
+fixture:  Bodo/Glimt_home   Brann_away  Date:  2023-04-29T16:00:00+00:00  
+fixture:  Viking_home   Ham-Kam_away  Date:  2023-04-30T15:00:00+00:00  
+fixture:  Viking_home   Stromsgodset_away  Date:  2023-05-07T15:00:00+00:00  
+fixture:  Sarpsborg 08 FF_home   Brann_away  Date:  2023-05-13T15:00:00+00:00  
+fixture:  Viking_home   ODD Ballklubb_away  Date:  2023-05-16T16:00:00+00:00  
+fixture:  Aalesund_home   Brann_away  Date:  2023-06-04T15:00:00+00:00  
+fixture:  Viking_home   Molde_away  Date:  2023-06-04T17:15:00+00:00  
+fixture:  Rosenborg_home   Brann_away  Date:  2023-05-03T16:00:00+00:00  
+total number of fixtures read:  10  
+Mathias Rasmussen_pos_M  C   7.39043631698108   6.1  
+Ulrik Mathisen_pos_M  N   7.150435655493292   6.2  
+Bård Finne_pos_F  C   7.050436370596514   6.3  
+Japhet Sery Larsen_pos_D  C   7.017636967399713   6.4  
+Niklas Castro_pos_F  N   6.950436701334322   6.5  
+Ole Didrik Blomberg_pos_F  C   6.870436272182952   6.6  
+Felix Horn Myhre_pos_M  C   6.8704362429500145   6.7  
+Svenn Crone_pos_D  C   6.79470896328215   6.8  
+Isak Hjorteseth_pos_M  N   6.75043658682485   6.9  
+Sivert Heltne Nilsen_pos_M  C   6.750436273995295   7.0  
+Rasmus Holten_pos_D  N   6.7504361211580965   7.1  
+Zlatko Tripić_pos_F  C   6.742054317000034   7.2  
+Niklas Jensen_pos_F  C   6.701699824685278   7.3  
+Ruben Kristiansen_pos_D  C   6.627297567611718   7.4  
+Frederik Børsting_pos_M  C   6.604152034408694   7.5  
+Thore Baardsen Pedersen_pos_D  N   6.550435655493293   7.6  
+Aune Selland Heggebø_pos_F  C   6.48376964272442   7.7  
+David Möller Wolfe_pos_D  C   6.405897348648857   7.8  
+Marius Trengereid_pos_M  N   6.350437052491713   7.9  
+Nicholas D'Agostino_pos_F  C   6.342053016978553   8.0  
+Sondre Flem Bjørshol_pos_D  C   6.337653276201977   8.1  
+Fredrik Knudsen_pos_D  C   6.309979157449058   8.2  
+Matias Dyngeland_pos_G  C   6.304735775490378   8.3  
+Sander Svendsen_pos_F  C   6.262053271885093   8.4  
+David Brekalo_pos_D  C   6.254702718263442   8.5  
+Harald Tangen_pos_M  C   6.122053724650287   8.6  
+Eirik Johansen_pos_G  N   6.050437052491713   8.7  
+David Tufekcic_pos_M  N   6.050436121158097   8.8  
+Lars-Jørgen Salvesen_pos_F  C   6.042053858168743   8.9  
+Niklas Sandberg_pos_M  C   6.01538725109514   9.0  
+Yann-Erik de Lanlay_pos_M  C   5.941722164720181   9.1  
+Patrick Yazbek_pos_M  C   5.932053367042837   9.2  
+Edvin Austbø_pos_F  N   5.882053493379944   9.3  
+Gianni Stensness_pos_D  C   5.724452338136709   9.4  
+Birkir Bjarnason_pos_M  C   5.7153871945793195   9.5  
+Markus Solbakken_pos_M  C   5.702053610559035   9.6  
+Shayne Pattynama_pos_D  C   5.632696057207108   9.7  
+Patrik Sigurdur Gunnarsson_pos_G  C   5.461190028945144   9.8  
+Herman Johan Haugen_pos_D  C   5.3066250849928815   9.9  
+Djibril Diop_pos_D  N   5.18205465592667   10.0  
