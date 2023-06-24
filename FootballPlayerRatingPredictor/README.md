@@ -13,6 +13,8 @@ Code requires a few parameters to be set:
 
 Sample response for a fixture:  
 
+The result format is: <playerName>_<playerPosition>_<IsCaptain> predictedRating MinRatingOnD11
+
 Running in Test Mode
 New params: 
 global motm_mul
